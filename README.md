@@ -14,16 +14,16 @@ de cada producto y el pago total por todos los productos.
 
 #### Instalación de Django y Django Rest Framework
 Partiendo de que se ha instalado correctamente Python 3.7, abrimos una terminal
-y hacemos uso del gestor de paquetes que trae Python; pip:
+y hacemos uso del gestor de paquetes que trae Python; pip:  
 `pip install django`  
 `pip install djangorestframework`  
 
 #### Levantar el servidor
 Una vez instalados los requerimientos y estando situados dentro de la carpeta *consumo_clientes*, se deberá
-ejecutar el siguiente comando para crear las tablas en la base de datos:
+ejecutar el siguiente comando para crear las tablas en la base de datos:  
 `python manage.py migrate`  
 
-Para levanar el sevidor, ejecutamos:  
+Para levantar el sevidor, ejecutamos:  
 `python manage.py runserver`  
 
 Una vez que el servidor ha levantado, abrimos un navegador y escribimos lo siguiente en la url:  
