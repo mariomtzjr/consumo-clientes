@@ -23,4 +23,13 @@ el nombre y apellido desde el formulario.
 
 #### ScreenShots
 ##### Vista del formulario
-![Screenshot](/capturas/formulario.png)
+![Formulario](/capturas/formulario.png)
+
+##### Vista del formulario con datos
+![Formulario](/capturas/formulario_datos.png)
+
+##### Vista de la respuesta
+![Formulario](/capturas/respuesta_formulario.png)
+
+##### Vista de usuario no encontrado
+![Formulario](/capturas/usuario_no_existe.png)
