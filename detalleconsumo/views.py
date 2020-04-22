@@ -17,27 +17,31 @@ class DetalleConsumoListar(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         nombre_cliente = self.kwargs.get('slug', None)
-        cliente = Cliente.objects.get(slug=nombre_cliente)
-        productos = Consumo.objects.filter(cliente=cliente.id)
-        pago_total = 0
-        detalle = {
-            "cliente": " ",
-            "productos": [],
-            "total_pagado": " "
-        }
-        products = []
-
-        for consumo in productos:
-            pago_total += consumo.producto.precio_unitario
-            products.append({
-                'producto': str(consumo.producto.nombre),
-                'descripcion': str(consumo.producto.descripcion),
-                'precio_unitario': int(consumo.producto.precio_unitario),
-            })
         
-        detalle['cliente'] = str(cliente)
-        detalle['productos'] = products
-        detalle['total_pagado'] = pago_total
+        try:
+            cliente = Cliente.objects.get(slug=nombre_cliente)
+            productos = Consumo.objects.filter(cliente=cliente.id)
+            pago_total = 0
+            detalle = {
+                "cliente": " ",
+                "productos": [],
+                "total_pagado": " "
+            }
+            products = []
 
-        return Response(detalle)
+            for consumo in productos:
+                pago_total += consumo.producto.precio_unitario
+                products.append({
+                    'producto': str(consumo.producto.nombre),
+                    'descripcion': str(consumo.producto.descripcion),
+                    'precio_unitario': int(consumo.producto.precio_unitario),
+                })
+            
+            detalle['cliente'] = str(cliente)
+            detalle['productos'] = products
+            detalle['total_pagado'] = pago_total
+
+            return Response(detalle)
+        except:
+            return Response({"El usuario {} no existe".format(nombre_cliente)})
         
